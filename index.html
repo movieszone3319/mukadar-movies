@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUKADAR MOVIES ZONE - Reacher Hindi Dubbed</title>
+    <title>MUKADAR MOVIES ZONE - Ultimate HD Stream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary-color: #e50914; --bg-color: #0b0c10; --card-bg: #1f2833; --text-color: #ffffff; --text-muted: #c5c6c7; }
@@ -22,7 +22,8 @@
         .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; padding: 0 20px; }
         .movie-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid #333; transition: transform 0.2s; }
         .movie-card:hover { transform: scale(1.04); border-color: var(--primary-color); }
-        .movie-poster { width: 100%; aspect-ratio: 2/3; object-fit: cover; background: #111; display: block; }
+        .poster-art { width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #1f2833, #0b0c10); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2.8rem; color: #e50914; border-bottom: 1px solid #333; text-align: center; padding: 10px;}
+        .poster-art span { font-size: 0.7rem; color: #fff; margin-top: 5px; font-weight: bold; }
         .movie-info { padding: 10px; }
         .movie-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .movie-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
@@ -43,25 +44,23 @@
         <div class="logo"><i class="fas fa-film"></i> MUKADAR <span>MOVIES ZONE</span></div>
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search Reacher, Movies & Series..." onkeyup="filterMovies()">
+            <input type="text" id="searchInput" placeholder="Search Reacher, Legion, Movies..." onkeyup="filterMovies()">
         </div>
     </header>
 
     <div class="categories">
         <button class="tab-btn active" onclick="filterCat('all', this)">🔥 All Content</button>
         <button class="tab-btn" onclick="filterCat('series', this)">📺 Reacher & Series</button>
-        <button class="tab-btn" onclick="filterCat('hollywood', this)">🎬 Hollywood</button>
-        <button class="tab-btn" onclick="filterCat('hindi', this)">🇮🇳 Bollywood & Hindi</button>
-        <button class="tab-btn" onclick="filterCat('punjabi', this)">🌾 Punjabi</button>
-        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror</button>
+        <button class="tab-btn" onclick="filterCat('movies', this)">🎬 World Movies</button>
+        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror & Legion</button>
     </div>
 
-    <div class="section-title">Reacher All Seasons (Hindi Dubbed) & HD Stream</div>
+    <div class="section-title">Reacher (S1-S4) & Legion Complete Hindi Dubbed & HD Stream</div>
 
     <div class="movie-grid" id="movieGrid">
         <!-- Reacher Season 1 -->
         <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 1 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=1&episode=1')">
-            <img src="https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
+            <div class="poster-art">⚔️<span>REACHER S1</span></div>
             <div class="movie-info">
                 <div class="movie-title">Reacher S1 (Hindi)</div>
                 <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
@@ -70,91 +69,21 @@
 
         <!-- Reacher Season 2 -->
         <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 2 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=2&episode=1')">
-            <img src="https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
+            <div class="poster-art">🛡️<span>REACHER S2</span></div>
             <div class="movie-info">
                 <div class="movie-title">Reacher S2 (Hindi)</div>
                 <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- Money Heist -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Money Heist (Season 1)', 'https://vidsrc.xyz/embed/tv?imdb=tt6468322&season=1&episode=1')">
-            <img src="https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODBhNC00NmNhLWI0OWEtZTZhYmM1ZjM0MjBmXkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
+        <!-- Reacher Season 3 -->
+        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 3 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=3&episode=1')">
+            <div class="poster-art">⚡<span>REACHER S3</span></div>
             <div class="movie-info">
-                <div class="movie-title">Money Heist</div>
+                <div class="movie-title">Reacher S3 (Hindi)</div>
                 <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- Avatar 2 -->
-        <div class="movie-card" data-category="hollywood" onclick="openPlayer('Avatar: The Way of Water', 'https://vidsrc.xyz/embed/movie?imdb=tt1630029')">
-            <img src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM2YjIxZW03XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
-            <div class="movie-info">
-                <div class="movie-title">Avatar 2</div>
-                <div class="movie-meta"><span>Hollywood</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Pathaan -->
-        <div class="movie-card" data-category="hindi" onclick="openPlayer('Pathaan', 'https://vidsrc.xyz/embed/movie?imdb=tt12844910')">
-            <img src="https://m.media-amazon.com/images/M/MV5BN2RjZDJhYzAtOTQ2MC00OGY0LWFmYWItNmQwY2JiNzg5MjVjXkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
-            <div class="movie-info">
-                <div class="movie-title">Pathaan</div>
-                <div class="movie-meta"><span>Hindi</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- The Conjuring -->
-        <div class="movie-card" data-category="horror" onclick="openPlayer('The Conjuring', 'https://vidsrc.xyz/embed/movie?imdb=tt1457767')">
-            <img src="https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDk2ZmJjMjE0XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
-            <div class="movie-info">
-                <div class="movie-title">The Conjuring</div>
-                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Carry On Jatta 3 -->
-        <div class="movie-card" data-category="punjabi" onclick="openPlayer('Carry On Jatta 3', 'https://vidsrc.xyz/embed/movie?imdb=tt21389812')">
-            <img src="https://m.media-amazon.com/images/M/MV5BNmU4MTJmOWQtY2MyZC00MmY1LTk0OTgtMDdhZTc3MmU5OGU1XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
-            <div class="movie-info">
-                <div class="movie-title">Carry On Jatta 3</div>
-                <div class="movie-meta"><span>Punjabi</span> <span class="quality-badge">720p</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Player -->
-    <div class="modal" id="playerModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closePlayer()">&times;</span>
-            <div class="player-container">
-                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
-            </div>
-            <div class="media-details">
-                <h3 id="modalTitle">Movie Title</h3>
-                <p>Streaming in HD Quality (480p, 720p, 1080p) on Mukadar Movies Zone.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openPlayer(title, url) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('videoPlayer').src = url;
-            document.getElementById('playerModal').style.display = 'flex';
-        }
-
-        codeclosePlayer = function() {
-            document.getElementById('playerModal').style.display = 'none';
-            document.getElementById('videoPlayer').src = '';
-        }
-        function closePlayer() {
-            document.getElementById('playerModal').style.display = 'none';
-            document.getElementById('videoPlayer').src = '';
-        }
-
-        function filterMovies() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('movie-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByClassName('movie-title')[0].innerText.toLowerCase
+        <!-- Reacher Season 4 -->
+        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 4 (Hindi)',

@@ -3,87 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUKADAR MOVIES ZONE - Ultimate HD Stream</title>
+    <title>MUKADAR MOVIES ZONE - World Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-color: #e50914; --bg-color: #0b0c10; --card-bg: #1f2833; --text-color: #ffffff; --text-muted: #c5c6c7; }
+        :root { --primary-color: #e50914; --bg-color: #000000; --card-bg: #141414; --text-color: #ffffff; --text-muted: #8c8c8c; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 40px; }
-        header { position: sticky; top: 0; z-index: 100; background: rgba(11, 12, 16, 0.95); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
+        header { position: sticky; top: 0; z-index: 100; background: rgba(0, 0, 0, 0.95); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
         .logo { font-size: 1.1rem; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
         .logo span { color: #fff; }
-        .search-box { position: relative; width: 55%; }
-        .search-box input { width: 100%; padding: 8px 14px 8px 36px; border-radius: 25px; border: 1px solid #444; background: #1a1a1a; color: #fff; font-size: 0.9rem; }
-        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
-        .categories { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; scrollbar-width: none; }
-        .tab-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid #444; border-radius: 20px; color: #fff; font-size: 0.85rem; cursor: pointer; white-space: nowrap; transition: 0.3s; }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary-color); border-color: var(--primary-color); }
-        .section-title { padding: 10px 20px; font-weight: bold; font-size: 1.1rem; color: #e50914; border-left: 4px solid #e50914; margin: 10px 20px; background: rgba(229,9,20,0.05); }
-        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; padding: 0 20px; }
-        .movie-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid #333; transition: transform 0.2s; }
-        .movie-card:hover { transform: scale(1.04); border-color: var(--primary-color); }
-        .poster-art { width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, #1f2833, #0b0c10); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2.8rem; color: #e50914; border-bottom: 1px solid #333; text-align: center; padding: 10px;}
-        .poster-art span { font-size: 0.7rem; color: #fff; margin-top: 5px; font-weight: bold; }
-        .movie-info { padding: 10px; }
-        .movie-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .movie-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
-        .quality-badge { background: #e50914; color: #fff; padding: 1px 4px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-content { width: 95%; max-width: 850px; background: #16161a; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #333; }
-        .close-btn { position: absolute; top: 12px; right: 15px; color: #fff; font-size: 1.5rem; z-index: 1010; cursor: pointer; background: rgba(0,0,0,0.6); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .player-container { width: 100%; aspect-ratio: 16/9; background: #000; }
-        iframe { width: 100%; height: 100%; border: none; }
-        .media-details { padding: 16px; }
-        .media-details h3 { font-size: 1.2rem; margin-bottom: 6px; }
-        .media-details p { font-size: 0.85rem; color: #aaa; margin-bottom: 10px; }
+        .search-box { position: relative; width: 60%; }
+        .search-box input { width: 100%; padding: 8px 12px 8px 34px; border-radius: 20px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 0.85rem; }
+        .search-box i { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #888; font-size: 0.85rem; }
+        
+        .categories { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; scrollbar-width: none; }
+        .tab-btn { padding: 6px 14px; background: #222; border: 1px solid #333; border-radius: 20px; color: #fff; font-size: 0.8rem; cursor: pointer; white-space: nowrap; }
+        .tab-btn.active { background: var(--primary-color); border-color: var(--primary-color); }
+
+        .section-title { padding: 10px 16px; font-weight: bold; font-size: 1rem; color: #fff; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; padding: 0 16px; }
+        .movie-card { background: var(--card-bg); border-radius: 6px; overflow: hidden; cursor: pointer; position: relative; }
+        .movie-poster { width: 100%; aspect-ratio: 2/3; object-fit: cover; background: #222; display: block; }
+        .movie-info { padding: 6px; }
+        .movie-title { font-size: 0.75rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Netflix Style OTT Detail View */
+        .detail-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 1000; overflow-y: auto; }
+        .detail-header { position: relative; width: 100%; height: 260px; background-size: cover; background-position: center; }
+        .detail-header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #000, transparent); }
+        .back-btn { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.1rem; z-index: 1010; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        
+        .detail-body { padding: 16px; margin-top: -30px; position: relative; z-index: 10; }
+        .flex-row { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 12px; }
+        .thumb-poster { width: 95px; aspect-ratio: 2/3; border-radius: 6px; object-fit: cover; border: 2px solid #333; }
+        .detail-title { font-size: 1.2rem; font-weight: bold; color: #fff; margin-bottom: 4px; }
+        .meta-info { font-size: 0.8rem; color: var(--text-muted); display: flex; gap: 10px; margin-bottom: 6px; }
+        .ratings { color: #f5c518; font-size: 0.8rem; }
+        
+        .action-buttons { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+        .btn-play { width: 100%; padding: 12px; background: var(--primary-color); color: #fff; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-download { width: 100%; padding: 10px; background: #262626; color: #fff; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
+        .overview-section { font-size: 0.85rem; color: #ccc; line-height: 1.4; margin-bottom: 16px; }
+        .info-block { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+        .info-block span { color: #fff; }
+
+        /* Video Player Modal */
+        .player-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; justify-content: center; align-items: center; }
+        .player-box { width: 100%; aspect-ratio: 16/9; background: #000; position: relative; }
+        .player-box iframe { width: 100%; height: 100%; border: none; }
+        .player-close { position: absolute; top: -45px; right: 10px; color: #fff; font-size: 1.8rem; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><i class="fas fa-film"></i> MUKADAR <span>MOVIES ZONE</span></div>
+        <div class="logo"><i class="fas fa-play-circle"></i> MUKADAR <span>ZONE</span></div>
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search Reacher, Legion, Movies..." onkeyup="filterMovies()">
+            <input type="text" id="searchInput" placeholder="Search any movie, Reacher, Legion, Series..." onkeyup="searchWorldContent(this.value)">
         </div>
     </header>
 
     <div class="categories">
-        <button class="tab-btn active" onclick="filterCat('all', this)">🔥 All Content</button>
-        <button class="tab-btn" onclick="filterCat('series', this)">📺 Reacher & Series</button>
-        <button class="tab-btn" onclick="filterCat('movies', this)">🎬 World Movies</button>
-        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror & Legion</button>
+        <button class="tab-btn active" onclick="loadCategory('trending', this)">🔥 Trending</button>
+        <button class="tab-btn" onclick="loadCategory('reacher', this)">⚔️ Reacher S1-4</button>
+        <button class="tab-btn" onclick="loadCategory('legion', this)">💀 Legion</button>
+        <button class="tab-btn" onclick="loadCategory('hindi', this)">🇮🇳 Hindi Dubbed</button>
+        <button class="tab-btn" onclick="loadCategory('horror', this)">👻 Horror</button>
+        <button class="tab-btn" onclick="loadCategory('punjabi', this)">🌾 Punjabi</button>
     </div>
 
-    <div class="section-title">Reacher (S1-S4) & Legion Complete Hindi Dubbed & HD Stream</div>
+    <div class="section-title" id="sectionTitle">World Movies & Series Collection (HD Stream)</div>
 
     <div class="movie-grid" id="movieGrid">
-        <!-- Reacher Season 1 -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 1 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=1&episode=1')">
-            <div class="poster-art">⚔️<span>REACHER S1</span></div>
-            <div class="movie-info">
-                <div class="movie-title">Reacher S1 (Hindi)</div>
-                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
+        <!-- Default Popular Content Loaded via JS -->
+    </div>
 
-        <!-- Reacher Season 2 -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 2 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=2&episode=1')">
-            <div class="poster-art">🛡️<span>REACHER S2</span></div>
-            <div class="movie-info">
-                <div class="movie-title">Reacher S2 (Hindi)</div>
-                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
-            </div>
+    <!-- Netflix Style OTT Detail Modal -->
+    <div class="detail-modal" id="detailModal">
+        <div class="detail-header" id="modalHeaderBg">
+            <button class="back-btn" onclick="closeDetail()"><i class="fas fa-arrow-left"></i></button>
         </div>
-
-        <!-- Reacher Season 3 -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 3 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=3&episode=1')">
-            <div class="poster-art">⚡<span>REACHER S3</span></div>
-            <div class="movie-info">
-                <div class="movie-title">Reacher S3 (Hindi)</div>
-                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
+        <div class="detail-body">
+            <div class="flex-row">
+                <img id="modalPoster" src="" class="thumb-poster">
+                <div>
+                    <div class="detail-title" id="modalTitle">Title</div>
+                    <div class="meta-info">
+                        <span id="modalYearTime">2026</span>
+                        <span class="ratings" id="modalRating">★★★★☆</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Reacher Season 4 -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 4 (Hindi)',
+            <div class="action-buttons">
+                <button class="btn-play" onclick="playMovie()"><i class="fas fa-play"></i> Play Full Movie/Series</button>
+                <button class="btn-download" onclick="alert('Full HD Streaming Active!')"><i class="fas fa-download"></i> HD Quality</button>
+            </div>
+
+            <div class="overview-section" id="modalDesc">Overview...</div>
+            <div class="info-block">Type: <span id="modalType">Movie / Series</span></div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="player-modal" id="playerModal">
+        <div class="player-box">
+            <span class="player-close" onclick="closePlayer()">&times;</span>
+            <iframe id="videoIframe" src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        let activeImdbId = "";
+
+        // Preloaded special collection (Reacher S1-S4, Legion, and hits)
+        const specialItems = [
+            { title: "Reacher S1 (Hindi)", type: "tv", id: "9288030", season: 1, poster: "https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg", desc: "Jack Reacher finds himself in the middle of a deadly conspiracy full of dirty cops." },
+            { title: "Reacher S2 (Hindi)", type: "tv", id: "9288030", season: 2, poster: "https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg", desc: "When members of Reachers old military unit start turning up dead, Reacher seeks justice." },
+            { title: "Reacher S3 (Hindi)", type: "tv", id: "9288030", season: 3, poster: "https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg", desc: "Continuing the thrilling action-packed journey of Jack Reacher in Hindi dubbed." },
+            { title: "Reacher S4 (Hindi)", type: "tv", id: "9288030", season: 4, poster: "https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg", desc: "All new season 4 episodes fully available in HD streaming." },
+            { title: "Legion (Movie Hindi)", type: "movie", id: "1038686", poster: "https://m.media-amazon.com/images/M/MV5BMTI5NzAwNjk2OF5BMl5BanBnXkFtZTcwNTg5MDc4Mw@@._V1_SX300.jpg", desc: "An archangel and a group of humans at a diner in the middle of nowhere defend humanity." },
+            { title: "Legion Series (Hindi)", type: "tv", id: "5114356", season: 1, poster: "https://m.media-amazon.com/images/M/MV5BYzA2MTU2ZjUtMmFiOC00MGVlLWFjY2QtZTQ4NGJiNGM4Njg1XkEyXkFqcGc@._V1_SX300.jpg", desc: "David Haller, a troubled young man diagnosed with schizophrenia, discovers extraordinary powers." },
+            { title: "Pathaan (Hindi)", type: "movie", id: "12844910", poster: "https://m.media-amazon.com/images/M/MV5BN2RjZDJhYzAtOTQ2MC00OGY0LWFmYWItNmQwY2JiNzg5MjVjXkEyXkFqcGc@._V1_SX300.jpg", desc: "An exiled RAW agent takes down a ruthless terrorist organization." },
+            { title: "Avatar 2", type: "movie", id: "1630029", poster: "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM2YjIxZW03XkEyXkFqcGc@._V1_SX300.jpg", desc: "Jake Sully lives with his newfound family on the moon Pandora." },
+            { title: "Money Heist S1", type: "tv", id: "6468322", season: 1, poster: "https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODBhNC00NmNhLWI0OWEtZTZhYmM1ZjM0MjBmXkEyXkFqcGc@._V1_SX300.jpg", desc: "A criminal mastermind who has a grand plan to carry out the biggest robbery." }
+        ];
+
+        function renderGrid(items) {
+            let grid = document.getElementById('movieGrid');
+            grid.innerHTML = "";
+            items.forEach(item => {
+                let card = document.createElement('div');
+                card.className = 'movie-card';
+                let playLink = item.type === 'tv' 
+                    ? `https://vidsrc.xyz/embed/tv?imdb=tt${item.id}&season=${item.season || 1}&episode=1`
+                    : `https://vidsrc.xyz/embed/movie?imdb=tt${item.id}`;
+                
+                card.onclick = () => openDetail(item.title, item.poster, item.desc, item.type, playLink);
+                card.innerHTML = `
+                    <img src="${item.poster}" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/111/fff?text=Movie'">
+                    <div class="movie-info"><div class="movie-title">${item.title}</div></div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Initial load
+        renderGrid(specialItems);
+
+        function openDetail(title, poster, desc, type, playUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPoster').src = poster;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalType').innerText = type.toUpperCase() + " (HD Stream)";
+            document.getElementById('modalHeaderBg').style.backgroundImage = `url('${poster}')`;
+            
+            window.selectedPlayUrl = playUrl;
+            document.getElementById('detailModal').style.display = 'block';
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function playMovie() {
+            document.getElementById('videoIframe').src = window.selectedPlayUrl;
+            document.getElementById('playerModal').style.display = 'flex';
+        }
+
+        function closePlayer() {
+            document.getElementById('videoIframe').src = '';
+            document.getElementById('playerModal').style.display = 'none';
+        }
+
+        // Search World Content using public API or filter
+        async function searchWorldContent(query) {
+            if(!query) {
+                renderGrid(specialItems);
+                return;
+            }
+            try {
+                let res = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`); // or generic mock search filter
+                let cards = document.getElementsByClassName('movie-card');
+                for (let card of cards) {
+                    let title = card.innerText.toLowerCase();
+                    card.style.display = title.includes(query.toLowerCase()) ? 'block' : 'none';
+                }
+            } catch(e) {}
+        }
+
+        function loadCategory(cat, btn) {
+            let buttons = document.getElementsByClassName('tab-btn');
+            for (let b of buttons) b.classList.remove('active');
+            btn.classList.add('active');
+
+            if(cat === 'reacher') {
+                renderGrid(specialItems.filter(i => i.title.includes('Reacher')));
+            } else if(cat === 'legion') {
+                renderGrid(specialItems.filter(i => i.title.includes('Legion')));
+            } else {
+                renderGrid(specialItems);
+            }
+        }
+    </script>
+</body>
+</html>

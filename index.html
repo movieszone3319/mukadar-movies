@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUKADAR MOVIES ZONE - World Movie Hub</title>
+    <title>MUKADAR MOVIES ZONE - Reacher Hindi Dubbed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --primary-color: #e50914; --bg-color: #0b0c10; --card-bg: #1f2833; --text-color: #ffffff; --text-muted: #c5c6c7; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 40px; }
         header { position: sticky; top: 0; z-index: 100; background: rgba(11, 12, 16, 0.95); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
-        .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
+        .logo { font-size: 1.1rem; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
         .logo span { color: #fff; }
         .search-box { position: relative; width: 55%; }
-        .search-box input { width: 100%; padding: 10px 14px 10px 36px; border-radius: 25px; border: 1px solid #444; background: #1a1a1a; color: #fff; font-size: 0.9rem; }
+        .search-box input { width: 100%; padding: 8px 14px 8px 36px; border-radius: 25px; border: 1px solid #444; background: #1a1a1a; color: #fff; font-size: 0.9rem; }
         .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
         .categories { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; scrollbar-width: none; }
         .tab-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid #444; border-radius: 20px; color: #fff; font-size: 0.85rem; cursor: pointer; white-space: nowrap; transition: 0.3s; }
@@ -27,7 +27,7 @@
         .movie-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .movie-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
         .quality-badge { background: #e50914; color: #fff; padding: 1px 4px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { width: 95%; max-width: 850px; background: #16161a; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #333; }
         .close-btn { position: absolute; top: 12px; right: 15px; color: #fff; font-size: 1.5rem; z-index: 1010; cursor: pointer; background: rgba(0,0,0,0.6); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .player-container { width: 100%; aspect-ratio: 16/9; background: #000; }
@@ -35,84 +35,90 @@
         .media-details { padding: 16px; }
         .media-details h3 { font-size: 1.2rem; margin-bottom: 6px; }
         .media-details p { font-size: 0.85rem; color: #aaa; margin-bottom: 10px; }
-        .server-selector { display: flex; gap: 8px; align-items: center; font-size: 0.85rem; }
-        .server-btn { padding: 5px 10px; background: #333; border: 1px solid #555; color: #fff; border-radius: 4px; cursor: pointer; }
-        .server-btn.active { background: var(--primary-color); border-color: var(--primary-color); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><i class="fas fa-film"></i> MUKADAR <span>WORLD ZONE</span></div>
+        <div class="logo"><i class="fas fa-film"></i> MUKADAR <span>MOVIES ZONE</span></div>
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search Hollywood, Punjabi, Horror, Series..." onkeyup="filterMovies()">
+            <input type="text" id="searchInput" placeholder="Search Reacher, Movies & Series..." onkeyup="filterMovies()">
         </div>
     </header>
 
     <div class="categories">
-        <button class="tab-btn active" onclick="filterCat('all', this)">🌍 All World</button>
-        <button class="tab-btn" onclick="filterCat('punjabi', this)">🌾 Punjabi Hits</button>
-        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror & Thriller</button>
-        <button class="tab-btn" onclick="filterCat('hollywood', this)">🎬 Hollywood HD</button>
-        <button class="tab-btn" onclick="filterCat('series', this)">📺 Web Series</button>
-        <button class="tab-btn" onclick="filterCat('hindi', this)">🇮🇳 Bollywood / Dubbed</button>
+        <button class="tab-btn active" onclick="filterCat('all', this)">🔥 All Content</button>
+        <button class="tab-btn" onclick="filterCat('series', this)">📺 Reacher & Series</button>
+        <button class="tab-btn" onclick="filterCat('hollywood', this)">🎬 Hollywood</button>
+        <button class="tab-btn" onclick="filterCat('hindi', this)">🇮🇳 Bollywood & Hindi</button>
+        <button class="tab-btn" onclick="filterCat('punjabi', this)">🌾 Punjabi</button>
+        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror</button>
     </div>
 
-    <div class="section-title">Trending & World Library (480p, 720p, 1080p Supported)</div>
+    <div class="section-title">Reacher All Seasons (Hindi Dubbed) & HD Stream</div>
 
     <div class="movie-grid" id="movieGrid">
-        <!-- Punjabi Movie -->
-        <div class="movie-card" data-category="punjabi" onclick="openPlayer('Carry On Jatta 3 - Punjabi Blockbuster', 'https://www.youtube.com/embed/V6vC30tB6AE')">
-            <img src="https://image.tmdb.org/t/p/w500/8X22K80Kx7A6r4a68C9UvLpXqjO.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Punjabi+Movie'">
+        <!-- Reacher Season 1 -->
+        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 1 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=1&episode=1')">
+            <img src="https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
             <div class="movie-info">
-                <div class="movie-title">Carry On Jatta 3</div>
-                <div class="movie-meta"><span>Punjabi</span> <span class="quality-badge">1080p</span></div>
+                <div class="movie-title">Reacher S1 (Hindi)</div>
+                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- Horror Movie -->
-        <div class="movie-card" data-category="horror" onclick="openPlayer('The Conjuring - Horror World', 'https://www.youtube.com/embed/k10ETkdOWIQ')">
-            <img src="https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Horror+Movie'">
+        <!-- Reacher Season 2 -->
+        <div class="movie-card" data-category="series" onclick="openPlayer('Reacher - Season 2 (Hindi)', 'https://vidsrc.xyz/embed/tv?imdb=tt9288030&season=2&episode=1')">
+            <img src="https://m.media-amazon.com/images/M/MV5BMGU5OGE3ZDktZWM1MC00YWE1LTg5NDgtMGZhYjhiODNkYWQ3XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
             <div class="movie-info">
-                <div class="movie-title">The Conjuring</div>
-                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">1080p</span></div>
+                <div class="movie-title">Reacher S2 (Hindi)</div>
+                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- Hollywood Movie -->
-        <div class="movie-card" data-category="hollywood" onclick="openPlayer('Avatar: The Way of Water - Hollywood', 'https://www.youtube.com/embed/d9MyW72ELq0')">
-            <img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Hollywood'">
-            <div class="movie-info">
-                <div class="movie-title">Avatar 2</div>
-                <div class="movie-meta"><span>English</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Web Series -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Money Heist - Web Series Season 1', 'https://www.youtube.com/embed/_InqQJRqGW4')">
-            <img src="https://image.tmdb.org/t/p/w500/reEMJA1iuNJcUbkBnT4r1G3oRsE.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Web+Series'">
+        <!-- Money Heist -->
+        <div class="movie-card" data-category="series" onclick="openPlayer('Money Heist (Season 1)', 'https://vidsrc.xyz/embed/tv?imdb=tt6468322&season=1&episode=1')">
+            <img src="https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODBhNC00NmNhLWI0OWEtZTZhYmM1ZjM0MjBmXkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
             <div class="movie-info">
                 <div class="movie-title">Money Heist</div>
-                <div class="movie-meta"><span>Series</span> <span class="quality-badge">720p</span></div>
+                <div class="movie-meta"><span>Series</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- Hindi Movie -->
-        <div class="movie-card" data-category="hindi" onclick="openPlayer('Pathaan - Bollywood Action', 'https://www.youtube.com/embed/vTIIMJ9tUc8')">
-            <img src="https://image.tmdb.org/t/p/w500/mYLOqiSTaLK3jfGGV8FzN9UdzHx.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Bollywood'">
+        <!-- Avatar 2 -->
+        <div class="movie-card" data-category="hollywood" onclick="openPlayer('Avatar: The Way of Water', 'https://vidsrc.xyz/embed/movie?imdb=tt1630029')">
+            <img src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM2YjIxZW03XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
+            <div class="movie-info">
+                <div class="movie-title">Avatar 2</div>
+                <div class="movie-meta"><span>Hollywood</span> <span class="quality-badge">1080p</span></div>
+            </div>
+        </div>
+
+        <!-- Pathaan -->
+        <div class="movie-card" data-category="hindi" onclick="openPlayer('Pathaan', 'https://vidsrc.xyz/embed/movie?imdb=tt12844910')">
+            <img src="https://m.media-amazon.com/images/M/MV5BN2RjZDJhYzAtOTQ2MC00OGY0LWFmYWItNmQwY2JiNzg5MjVjXkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
             <div class="movie-info">
                 <div class="movie-title">Pathaan</div>
                 <div class="movie-meta"><span>Hindi</span> <span class="quality-badge">1080p</span></div>
             </div>
         </div>
 
-        <!-- More World Horror / Thriller -->
-        <div class="movie-card" data-category="horror" onclick="openPlayer('IT Chapter Two - Horror', 'https://www.youtube.com/embed/xhJ5kL4tVD8')">
-            <img src="https://image.tmdb.org/t/p/w500/zfE0rYIcVCVFbuZ43u08dd2H9Yh.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Horror'">
+        <!-- The Conjuring -->
+        <div class="movie-card" data-category="horror" onclick="openPlayer('The Conjuring', 'https://vidsrc.xyz/embed/movie?imdb=tt1457767')">
+            <img src="https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDk2ZmJjMjE0XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
             <div class="movie-info">
-                <div class="movie-title">IT Chapter Two</div>
-                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">720p</span></div>
+                <div class="movie-title">The Conjuring</div>
+                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">1080p</span></div>
+            </div>
+        </div>
+
+        <!-- Carry On Jatta 3 -->
+        <div class="movie-card" data-category="punjabi" onclick="openPlayer('Carry On Jatta 3', 'https://vidsrc.xyz/embed/movie?imdb=tt21389812')">
+            <img src="https://m.media-amazon.com/images/M/MV5BNmU4MTJmOWQtY2MyZC00MmY1LTk0OTgtMDdhZTc3MmU5OGU1XkEyXkFqcGc@._V1_SX300.jpg" class="movie-poster">
+            <div class="movie-info">
+                <div class="movie-title">Carry On Jatta 3</div>
+                <div class="movie-meta"><span>Punjabi</span> <span class="quality-badge">720p</span></div>
             </div>
         </div>
     </div>
@@ -126,13 +132,7 @@
             </div>
             <div class="media-details">
                 <h3 id="modalTitle">Movie Title</h3>
-                <p id="modalDesc">Enjoy streaming in HD (480p, 720p, 1080p) on Mukadar Movies Zone.</p>
-                <div class="server-selector">
-                    <span>Quality / Server:</span>
-                    <button class="server-btn active">1080p HD</button>
-                    <button class="server-btn">720p</button>
-                    <button class="server-btn">480p</button>
-                </div>
+                <p>Streaming in HD Quality (480p, 720p, 1080p) on Mukadar Movies Zone.</p>
             </div>
         </div>
     </div>
@@ -140,10 +140,14 @@
     <script>
         function openPlayer(title, url) {
             document.getElementById('modalTitle').innerText = title;
-            document.getElementById('videoPlayer').src = url + "?autoplay=1";
+            document.getElementById('videoPlayer').src = url;
             document.getElementById('playerModal').style.display = 'flex';
         }
 
+        codeclosePlayer = function() {
+            document.getElementById('playerModal').style.display = 'none';
+            document.getElementById('videoPlayer').src = '';
+        }
         function closePlayer() {
             document.getElementById('playerModal').style.display = 'none';
             document.getElementById('videoPlayer').src = '';
@@ -153,202 +157,4 @@
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('movie-card');
             for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByClassName('movie-title')[0].innerText.toLowerCase();
-                cards[i].style.display = title.includes(input) ? 'block' : 'none';
-            }
-        }
-
-        function filterCat(category, btn) {
-            let buttons = document.getElementsByClassName('tab-btn');
-            for (let b of buttons) b.classList.remove('active');
-            btn.classList.add('active');
-
-            let cards = document.getElementsByClassName('movie-card');
-            for (let card of cards) {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        }
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ur" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUKADAR MOVIES ZONE - World Movie Hub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root { --primary-color: #e50914; --bg-color: #0b0c10; --card-bg: #1f2833; --text-color: #ffffff; --text-muted: #c5c6c7; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 40px; }
-        header { position: sticky; top: 0; z-index: 100; background: rgba(11, 12, 16, 0.95); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #222; }
-        .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
-        .logo span { color: #fff; }
-        .search-box { position: relative; width: 55%; }
-        .search-box input { width: 100%; padding: 10px 14px 10px 36px; border-radius: 25px; border: 1px solid #444; background: #1a1a1a; color: #fff; font-size: 0.9rem; }
-        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
-        .categories { display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; scrollbar-width: none; }
-        .tab-btn { padding: 8px 16px; background: var(--card-bg); border: 1px solid #444; border-radius: 20px; color: #fff; font-size: 0.85rem; cursor: pointer; white-space: nowrap; transition: 0.3s; }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary-color); border-color: var(--primary-color); }
-        .section-title { padding: 10px 20px; font-weight: bold; font-size: 1.1rem; color: #e50914; border-left: 4px solid #e50914; margin: 10px 20px; background: rgba(229,9,20,0.05); }
-        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; padding: 0 20px; }
-        .movie-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid #333; transition: transform 0.2s; }
-        .movie-card:hover { transform: scale(1.04); border-color: var(--primary-color); }
-        .movie-poster { width: 100%; aspect-ratio: 2/3; object-fit: cover; background: #111; display: block; }
-        .movie-info { padding: 10px; }
-        .movie-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .movie-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
-        .quality-badge { background: #e50914; color: #fff; padding: 1px 4px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-content { width: 95%; max-width: 850px; background: #16161a; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #333; }
-        .close-btn { position: absolute; top: 12px; right: 15px; color: #fff; font-size: 1.5rem; z-index: 1010; cursor: pointer; background: rgba(0,0,0,0.6); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .player-container { width: 100%; aspect-ratio: 16/9; background: #000; }
-        iframe { width: 100%; height: 100%; border: none; }
-        .media-details { padding: 16px; }
-        .media-details h3 { font-size: 1.2rem; margin-bottom: 6px; }
-        .media-details p { font-size: 0.85rem; color: #aaa; margin-bottom: 10px; }
-        .server-selector { display: flex; gap: 8px; align-items: center; font-size: 0.85rem; }
-        .server-btn { padding: 5px 10px; background: #333; border: 1px solid #555; color: #fff; border-radius: 4px; cursor: pointer; }
-        .server-btn.active { background: var(--primary-color); border-color: var(--primary-color); }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo"><i class="fas fa-film"></i> MUKADAR <span>WORLD ZONE</span></div>
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search Hollywood, Punjabi, Horror, Series..." onkeyup="filterMovies()">
-        </div>
-    </header>
-
-    <div class="categories">
-        <button class="tab-btn active" onclick="filterCat('all', this)">🌍 All World</button>
-        <button class="tab-btn" onclick="filterCat('punjabi', this)">🌾 Punjabi Hits</button>
-        <button class="tab-btn" onclick="filterCat('horror', this)">👻 Horror & Thriller</button>
-        <button class="tab-btn" onclick="filterCat('hollywood', this)">🎬 Hollywood HD</button>
-        <button class="tab-btn" onclick="filterCat('series', this)">📺 Web Series</button>
-        <button class="tab-btn" onclick="filterCat('hindi', this)">🇮🇳 Bollywood / Dubbed</button>
-    </div>
-
-    <div class="section-title">Trending & World Library (480p, 720p, 1080p Supported)</div>
-
-    <div class="movie-grid" id="movieGrid">
-        <!-- Punjabi Movie -->
-        <div class="movie-card" data-category="punjabi" onclick="openPlayer('Carry On Jatta 3 - Punjabi Blockbuster', 'https://www.youtube.com/embed/V6vC30tB6AE')">
-            <img src="https://image.tmdb.org/t/p/w500/8X22K80Kx7A6r4a68C9UvLpXqjO.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Punjabi+Movie'">
-            <div class="movie-info">
-                <div class="movie-title">Carry On Jatta 3</div>
-                <div class="movie-meta"><span>Punjabi</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Horror Movie -->
-        <div class="movie-card" data-category="horror" onclick="openPlayer('The Conjuring - Horror World', 'https://www.youtube.com/embed/k10ETkdOWIQ')">
-            <img src="https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Horror+Movie'">
-            <div class="movie-info">
-                <div class="movie-title">The Conjuring</div>
-                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Hollywood Movie -->
-        <div class="movie-card" data-category="hollywood" onclick="openPlayer('Avatar: The Way of Water - Hollywood', 'https://www.youtube.com/embed/d9MyW72ELq0')">
-            <img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Hollywood'">
-            <div class="movie-info">
-                <div class="movie-title">Avatar 2</div>
-                <div class="movie-meta"><span>English</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- Web Series -->
-        <div class="movie-card" data-category="series" onclick="openPlayer('Money Heist - Web Series Season 1', 'https://www.youtube.com/embed/_InqQJRqGW4')">
-            <img src="https://image.tmdb.org/t/p/w500/reEMJA1iuNJcUbkBnT4r1G3oRsE.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Web+Series'">
-            <div class="movie-info">
-                <div class="movie-title">Money Heist</div>
-                <div class="movie-meta"><span>Series</span> <span class="quality-badge">720p</span></div>
-            </div>
-        </div>
-
-        <!-- Hindi Movie -->
-        <div class="movie-card" data-category="hindi" onclick="openPlayer('Pathaan - Bollywood Action', 'https://www.youtube.com/embed/vTIIMJ9tUc8')">
-            <img src="https://image.tmdb.org/t/p/w500/mYLOqiSTaLK3jfGGV8FzN9UdzHx.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Bollywood'">
-            <div class="movie-info">
-                <div class="movie-title">Pathaan</div>
-                <div class="movie-meta"><span>Hindi</span> <span class="quality-badge">1080p</span></div>
-            </div>
-        </div>
-
-        <!-- More World Horror / Thriller -->
-        <div class="movie-card" data-category="horror" onclick="openPlayer('IT Chapter Two - Horror', 'https://www.youtube.com/embed/xhJ5kL4tVD8')">
-            <img src="https://image.tmdb.org/t/p/w500/zfE0rYIcVCVFbuZ43u08dd2H9Yh.jpg" class="movie-poster" onerror="this.src='https://via.placeholder.com/150/1f2833/fff?text=Horror'">
-            <div class="movie-info">
-                <div class="movie-title">IT Chapter Two</div>
-                <div class="movie-meta"><span>Horror</span> <span class="quality-badge">720p</span></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Player -->
-    <div class="modal" id="playerModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closePlayer()">&times;</span>
-            <div class="player-container">
-                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
-            </div>
-            <div class="media-details">
-                <h3 id="modalTitle">Movie Title</h3>
-                <p id="modalDesc">Enjoy streaming in HD (480p, 720p, 1080p) on Mukadar Movies Zone.</p>
-                <div class="server-selector">
-                    <span>Quality / Server:</span>
-                    <button class="server-btn active">1080p HD</button>
-                    <button class="server-btn">720p</button>
-                    <button class="server-btn">480p</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openPlayer(title, url) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('videoPlayer').src = url + "?autoplay=1";
-            document.getElementById('playerModal').style.display = 'flex';
-        }
-
-        function closePlayer() {
-            document.getElementById('playerModal').style.display = 'none';
-            document.getElementById('videoPlayer').src = '';
-        }
-
-        function filterMovies() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('movie-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByClassName('movie-title')[0].innerText.toLowerCase();
-                cards[i].style.display = title.includes(input) ? 'block' : 'none';
-            }
-        }
-
-        function filterCat(category, btn) {
-            let buttons = document.getElementsByClassName('tab-btn');
-            for (let b of buttons) b.classList.remove('active');
-            btn.classList.add('active');
-
-            let cards = document.getElementsByClassName('movie-card');
-            for (let card of cards) {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+                let title = cards[i].getElementsByClassName('movie-title')[0].innerText.toLowerCase

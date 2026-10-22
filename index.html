@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقدر - محمد سلیمان (MS 393)</title>
+    <title>MUKADAR STORIES - M. SULEMAN</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for Urdu & Typography -->
+    <!-- Google Fonts for Urdu Nastaliq & Noto Sans Urdu -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
-    <!-- html2pdf.js for exporting PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Cinzel:wght@600;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -22,31 +20,20 @@
                 extend: {
                     colors: {
                         gold: {
-                            100: '#FFF6D6',
-                            200: '#FCE799',
-                            300: '#F5D55E',
-                            400: '#E5C039',
-                            500: '#D4AF37',
-                            600: '#AA8513',
-                            700: '#836200',
+                            light: '#FFF099',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA820A',
+                            glow: '#FFD700'
                         },
-                        crimson: {
-                            400: '#E63946',
-                            600: '#B22222',
-                            700: '#8B0000',
-                            900: '#4A0404'
-                        },
-                        charcoal: {
-                            700: '#3A3A3A',
-                            800: '#2A2A2A',
-                            900: '#121212',
-                            950: '#0A0A0A'
+                        darkred: {
+                            800: '#300808',
+                            900: '#1a0303',
+                            950: '#0d0101'
                         }
                     },
                     fontFamily: {
-                        jameel: ['"Jameel Noori Nastaleeq"', '"Noto Nastaliq Urdu"', 'Amiri', 'serif'],
+                        urdu: ['"Noto Nastaliq Urdu"', 'Jameel Noori Nastaliq', 'Urdu Typesetting', 'serif'],
                         cinzel: ['Cinzel', 'serif'],
-                        kufi: ['"Reem Kufi"', 'serif']
                     }
                 }
             }
@@ -54,297 +41,331 @@
     </script>
 
     <style>
+        /* Fallback for Jameel Noori Nastaliq Font */
         @font-face {
-            font-family: 'Jameel Noori Nastaleeq';
-            src: url('https://cdn.jsdelivr.net/gh/paktype/urdu-fonts/Jameel%20Noori%20Nastaleeq.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
+            font-family: 'Jameel Noori Nastaliq';
+            src: local('Jameel Noori Nastaliq'), url('https://fonts.gstatic.com/ea/notonastaliqurdu/v4/NotoNastaliqUrdu-Regular.ttf') format('truetype');
             font-display: swap;
         }
 
+        body {
+            font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaliq', 'Amiri', serif;
+            background-color: #050203;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-box-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
-            height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #0A0A0A;
+            background: #0d0101;
         }
         ::-webkit-scrollbar-thumb {
             background: #D4AF37;
             border-radius: 4px;
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 35%, #FFD700 60%, #AA8513 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .crimson-gold-gradient {
-            background: linear-gradient(135deg, #380202 0%, #150A0A 50%, #0A0A0A 100%);
-        }
-
-        .luxury-card-border {
-            border: 2px solid;
-            border-image: linear-gradient(to bottom right, #D4AF37, #8B0000, #3A3A3A, #D4AF37) 1;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.18), inset 0 0 25px rgba(139, 0, 0, 0.25);
-        }
-
-        .urdu-font {
-            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Amiri', serif;
-            line-height: 2.9;
-            word-spacing: 2px;
-        }
-
-        .book-viewport {
-            perspective: 2500px;
-        }
-
-        .book-page-card {
-            transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.4s ease;
-            transform-origin: right center;
-            backface-visibility: hidden;
-        }
-
-        .flip-next-animation {
-            transform: rotateY(-110deg) scale(0.92);
-            opacity: 0;
-        }
-
-        .flip-prev-animation {
-            transform: rotateY(110deg) scale(0.92);
-            opacity: 0;
-        }
-
-        #ambientCanvas {
+        /* Spooky Canvas Overlay */
+        #bgCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
+            z-index: 0;
             pointer-events: none;
-            z-index: 1;
+        }
+
+        /* Story Card Texture */
+        .story-card {
+            background: linear-gradient(180deg, rgba(20, 5, 5, 0.94) 0%, rgba(8, 2, 2, 0.98) 100%);
+            backdrop-filter: blur(8px);
+        }
+
+        .story-content {
+            line-height: 2.9;
+            font-size: 1.25rem;
+            text-align: justify;
+        }
+
+        @media (min-width: 768px) {
+            .story-content {
+                line-height: 3.2;
+                font-size: 1.45rem;
+            }
+        }
+
+        /* Sentence Highlight Class during Narration */
+        .active-sentence {
+            background-color: rgba(212, 175, 55, 0.25);
+            color: #FFD700;
+            border-radius: 6px;
+            padding: 2px 6px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* Pulse animation for playing voice */
+        @keyframes audioPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 8px #FFD700); }
+        }
+        .audio-playing {
+            animation: audioPulse 1.8s infinite ease-in-out;
+        }
+
+        .active-tab {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(170, 130, 10, 0.4));
+            border-bottom: 2px solid #FFD700;
+            color: #FFD700 !important;
         }
     </style>
 </head>
-<body class="bg-charcoal-950 min-h-screen text-gray-100 font-sans flex flex-col justify-between selection:bg-gold-500 selection:text-black relative overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-gold selection:text-black">
 
-    <!-- Ambient Gold Particles Canvas Background -->
-    <canvas id="ambientCanvas"></canvas>
+    <!-- Atmospheric Animated Particle Canvas -->
+    <canvas id="bgCanvas"></canvas>
 
-    <!-- Top Luxury Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-charcoal-900/95 backdrop-blur-2xl border-b border-gold-500/30 px-4 py-3 flex items-center justify-between shadow-2xl">
-        
-        <!-- Left: Brand Title & Author -->
-        <button onclick="goToPage(0)" class="flex items-center gap-3 group text-right focus:outline-none">
-            <div class="w-12 h-12 rounded-xl border-2 border-gold-500 flex items-center justify-center bg-gradient-to-br from-crimson-900 to-charcoal-950 shadow-lg group-hover:border-gold-300 transition-all">
-                <span class="font-kufi text-gold-400 font-bold text-2xl">م</span>
-            </div>
-            <div>
-                <h1 class="font-cinzel text-xl md:text-2xl font-black gold-gradient-text tracking-widest leading-none">مقدر</h1>
-                <div class="flex items-center gap-2 mt-1">
-                    <span class="text-[11px] font-urdu text-gold-300">شاعر: محمد سلیمان</span>
-                    <span class="text-[9px] font-cinzel bg-crimson-900/80 text-gold-400 px-1.5 py-0.5 rounded border border-gold-500/40">MS 393</span>
-                </div>
-            </div>
-        </button>
-
-        <!-- Right: Control Actions -->
-        <div class="flex items-center gap-1.5 sm:gap-2.5">
+    <!-- HEADER & NAVBAR -->
+    <header class="relative z-10 border-b border-gold/30 bg-black/85 backdrop-filter blur-md sticky top-0 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
             
-            <!-- Music Player Toggle -->
-            <button onclick="toggleMusicModal(true)" class="p-2 sm:px-3 sm:py-1.5 rounded-xl border border-gold-500/40 hover:border-gold-300 bg-crimson-900/30 hover:bg-crimson-900/50 text-gold-300 text-xs transition flex items-center gap-1.5 shadow-md">
-                <i class="fa-solid fa-drum text-gold-400 animate-pulse" id="musicIconIndicator"></i>
-                <span class="hidden sm:inline font-urdu">موسیقی (ساز)</span>
-            </button>
-
-            <!-- Download App Button -->
-            <button onclick="downloadStandaloneApp()" class="p-2 sm:px-3 sm:py-1.5 rounded-xl border border-gold-500 bg-gold-500/10 hover:bg-gold-500/20 text-gold-300 text-xs transition flex items-center gap-1.5 shadow-md">
-                <i class="fa-solid fa-download text-gold-400"></i>
-                <span class="hidden sm:inline font-urdu">ڈاؤن لوڈ ایپ</span>
-            </button>
-
-            <!-- Table of Contents Toggle -->
-            <button onclick="toggleDrawer(true)" class="p-2 sm:px-3 sm:py-1.5 rounded-xl border border-gold-500/30 hover:border-gold-400 hover:bg-gold-500/10 text-gold-300 text-xs transition flex items-center gap-1.5">
-                <i class="fa-solid fa-book-bookmark text-gold-400"></i>
-                <span class="hidden sm:inline font-urdu">فہرست</span>
-            </button>
-
-            <!-- Export Dropdown -->
-            <div class="relative inline-block text-left">
-                <button onclick="toggleExportDropdown()" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-r from-gold-600 to-gold-500 text-charcoal-950 font-bold text-xs transition flex items-center gap-1 shadow-lg hover:brightness-110">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                    <span class="hidden sm:inline font-urdu">ایکسپورٹ</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] mr-0.5"></i>
-                </button>
-                <div id="exportDropdown" class="hidden absolute left-0 mt-2 w-48 rounded-xl bg-charcoal-900 border border-gold-500/40 shadow-2xl z-50 overflow-hidden backdrop-blur-xl">
-                    <button onclick="exportBookPDF()" class="w-full text-right px-4 py-3 text-xs text-gray-200 hover:bg-gold-500/20 hover:text-gold-300 flex items-center justify-between border-b border-charcoal-800">
-                        <span class="font-urdu">مکمل کتاب PDF</span>
-                        <i class="fa-solid fa-file-pdf text-red-400"></i>
-                    </button>
-                    <button onclick="exportBookText()" class="w-full text-right px-4 py-3 text-xs text-gray-200 hover:bg-gold-500/20 hover:text-gold-300 flex items-center justify-between">
-                        <span class="font-urdu">متن فائل (TXT)</span>
-                        <i class="fa-solid fa-file-lines text-blue-400"></i>
-                    </button>
+            <!-- Logo & Book Info -->
+            <div class="text-center md:text-right flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border-2 border-gold/80 flex items-center justify-center bg-darkred-950 shadow-lg shadow-gold/20">
+                    <span class="font-cinzel text-2xl font-black text-gold">M</span>
+                </div>
+                <div>
+                    <h1 class="font-cinzel text-2xl sm:text-3xl font-black tracking-widest text-gold-gradient drop-shadow-md">
+                        MUKADAR STORIES
+                    </h1>
+                    <p class="text-xs sm:text-sm text-gold-light/80 font-urdu tracking-wide">
+                        مصنف / نویسندہ: <span class="text-white font-bold text-base">محمد سلیمان</span> (مقدر)
+                    </p>
                 </div>
             </div>
 
+            <!-- WhatsApp Order & Ambient Controls -->
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="https://wa.me/923200031468?text=السلام%20علیکم!%20مجھے%20مقدر%20سٹوریز%20کی%20تمام%20کتابیں%20اور%20خوفناک%20کہانیاں%20چاہئیں۔" 
+                   target="_blank" 
+                   class="flex items-center gap-2 bg-gradient-to-r from-emerald-700 to-green-600 hover:from-emerald-600 hover:to-green-500 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded-full border border-emerald-400/40 shadow-lg transition duration-300 transform hover:-translate-y-0.5">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>تمام کتابیں دستیاب ہیں: <span dir="ltr" class="font-mono text-amber-200">03200031468</span></span>
+                </a>
+
+                <!-- Ambient Horror Sound Toggle -->
+                <button id="toggleAmbientBtn" title="پس منظر کی ڈراؤنی آواز" class="p-2.5 rounded-full bg-darkred-900 border border-gold/40 text-gold hover:text-white transition">
+                    <i id="ambientIcon" class="fas fa-volume-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Categories Bar -->
+        <div class="bg-darkred-950/90 border-t border-gold/10 px-4 py-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+            <div class="max-w-7xl mx-auto flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm">
+                <span class="text-gold/60 font-bold me-2"><i class="fas fa-filter text-xs me-1"></i> زمرہ جات:</span>
+                <button onclick="filterCategory('ALL', this)" class="cat-btn active-tab px-3 py-1 rounded-md text-gray-300 hover:text-gold transition">تمام کہانیاں (100,000+)</button>
+                <button onclick="filterCategory('JINN', this)" class="cat-btn px-3 py-1 rounded-md text-gray-300 hover:text-gold transition">چڑیلیں اور آسیب</button>
+                <button onclick="filterCategory('HAVELI', this)" class="cat-btn px-3 py-1 rounded-md text-gray-300 hover:text-gold transition">پراسرار حویلیاں</button>
+                <button onclick="filterCategory('NIGHT', this)" class="cat-btn px-3 py-1 rounded-md text-gray-300 hover:text-gold transition">خوفناک راتیں</button>
+                <button onclick="filterCategory('FAV', this)" class="cat-btn px-3 py-1 rounded-md text-amber-400 hover:text-gold transition"><i class="fas fa-bookmark text-xs me-1"></i>پسندیدہ</button>
+            </div>
         </div>
     </header>
 
-    <!-- Main Flipbook Reader Canvas Area -->
-    <main class="flex-1 max-w-5xl w-full mx-auto p-3 sm:p-6 flex flex-col justify-center items-center relative z-10">
+    <!-- MAIN STORY CONTAINER -->
+    <main class="relative z-10 max-w-5xl mx-auto px-3 sm:px-6 py-6 flex-1 w-full flex flex-col gap-6">
 
-        <!-- Flipbook Container Frame -->
-        <div class="w-full max-w-3xl book-viewport my-auto">
+        <!-- TOP PAGE CONTROLS & SEARCH -->
+        <div class="bg-black/80 border border-gold/30 rounded-2xl p-4 gold-box-shadow flex flex-col md:flex-row justify-between items-center gap-4">
             
-            <!-- Dynamic Page Card -->
-            <div id="bookPageCard" class="book-page-card crimson-gold-gradient luxury-card-border relative rounded-3xl p-6 sm:p-12 flex flex-col justify-between min-h-[580px] sm:min-h-[640px] overflow-hidden shadow-2xl">
-                
-                <!-- Corner Flourishes -->
-                <div class="absolute top-4 right-4 text-gold-500/40 pointer-events-none">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M10,10 L50,10 L50,16 L16,16 L16,50 L10,50 Z M22,22 L42,22 L42,25 L25,25 L25,42 L22,42 Z"/>
-                    </svg>
-                </div>
-                <div class="absolute top-4 left-4 text-gold-500/40 pointer-events-none rotate-90">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M10,10 L50,10 L50,16 L16,16 L16,50 L10,50 Z M22,22 L42,22 L42,25 L25,25 L25,42 L22,42 Z"/>
-                    </svg>
-                </div>
-                <div class="absolute bottom-4 right-4 text-gold-500/40 pointer-events-none -rotate-90">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M10,10 L50,10 L50,16 L16,16 L16,50 L10,50 Z M22,22 L42,22 L42,25 L25,25 L25,42 L22,42 Z"/>
-                    </svg>
-                </div>
-                <div class="absolute bottom-4 left-4 text-gold-500/40 pointer-events-none rotate-180">
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M10,10 L50,10 L50,16 L16,16 L16,50 L10,50 Z M22,22 L42,22 L42,25 L25,25 L25,42 L22,42 Z"/>
-                    </svg>
-                </div>
-
-                <!-- Inner Gold Border Frame -->
-                <div class="absolute inset-3 border border-gold-500/25 rounded-2xl pointer-events-none"></div>
-
-                <!-- Page Header Details -->
-                <div id="pageHeader" class="flex items-center justify-between border-b border-gold-500/30 pb-4 mb-4 z-10">
-                    <div class="flex items-center gap-2">
-                        <button id="bookmarkBtn" onclick="toggleCurrentBookmark()" class="text-gray-400 hover:text-gold-400 text-lg transition" title="بک مارک">
-                            <i class="fa-regular fa-bookmark"></i>
-                        </button>
-                        <span id="pageCategoryTag" class="text-xs font-urdu text-gold-300 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/30">
-                            مقدر و خودداری
-                        </span>
-                    </div>
-
-                    <span class="font-cinzel text-[11px] text-gold-400/90 tracking-widest uppercase">MUHAMMAD SULEMAN</span>
-
-                    <div id="pageBadge" class="text-xs font-cinzel text-gold-300 font-bold bg-charcoal-900/90 px-3.5 py-1 rounded-lg border border-gold-500/40 shadow-inner">
-                        <span id="currentPageDisplay">01</span> / 40
+            <!-- Page Counter & Jump Box -->
+            <div class="flex items-center gap-3 w-full md:w-auto justify-between">
+                <div class="text-right">
+                    <span class="text-xs text-gray-400 block">صفحہ نمبر:</span>
+                    <div class="text-gold font-bold text-lg">
+                        صفحہ <span id="currentPageNum" class="text-white font-mono text-xl">1</span> از <span class="text-gold-light font-mono">100,000+</span>
                     </div>
                 </div>
 
-                <!-- Dynamic Page Content Container -->
-                <div id="pageMainContent" class="flex-1 flex flex-col justify-center items-center text-center my-auto z-10 px-2 sm:px-8 py-4">
-                    <!-- Poetry Content rendered dynamically -->
+                <div class="flex items-center gap-1 border border-gold/40 rounded-lg bg-darkred-950 p-1">
+                    <input type="number" id="jumpPageInput" min="1" max="100000" placeholder="100..." class="w-16 sm:w-20 bg-transparent text-center text-gold font-mono text-sm focus:outline-none px-1">
+                    <button onclick="jumpToPage()" class="bg-gold hover:bg-gold-glow text-black font-bold text-xs px-2.5 py-1 rounded transition">
+                        جائیں
+                    </button>
                 </div>
+            </div>
 
-                <!-- Editable Form Box (Hidden by default) -->
-                <div id="poetryEditBox" class="hidden w-full max-w-lg mx-auto z-20 my-auto">
-                    <label class="block text-right text-xs text-gold-400 mb-1 font-urdu">عنوان شاعری:</label>
-                    <input type="text" id="editTitleInput" class="w-full bg-charcoal-950 border border-gold-500/50 rounded-xl p-2.5 text-right font-urdu text-gold-300 text-base mb-3 focus:outline-none focus:border-gold-400">
+            <!-- Search Field -->
+            <div class="w-full md:w-64 relative">
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="عنوان یا لفظ تلاش کریں..." class="w-full bg-darkred-950/90 border border-gold/30 rounded-lg px-3 py-1.5 pl-8 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-gold transition placeholder-gray-500">
+                <i class="fas fa-search text-gold/50 absolute left-2.5 top-2.5 text-xs"></i>
+            </div>
 
-                    <label class="block text-right text-xs text-gold-400 mb-1 font-urdu">شاعری کا متن (ہر مصرعہ الگ لائن پر):</label>
-                    <textarea id="editPoetryInput" rows="6" class="w-full bg-charcoal-950 border border-gold-500/50 rounded-xl p-3 text-right font-urdu text-gray-100 text-base focus:outline-none focus:border-gold-400 leading-relaxed"></textarea>
-
-                    <div class="flex justify-end gap-2 mt-4">
-                        <button onclick="cancelEditing()" class="px-4 py-2 rounded-xl border border-charcoal-700 text-xs text-gray-300 hover:bg-charcoal-800 font-urdu">منسوخ</button>
-                        <button onclick="savePoetryEdit()" class="px-5 py-2 rounded-xl bg-gold-500 text-charcoal-950 font-bold text-xs hover:bg-gold-400 font-urdu shadow-lg">محفوظ کریں</button>
-                    </div>
-                </div>
-
-                <!-- Page Footer Details -->
-                <div id="pageFooter" class="border-t border-gold-500/30 pt-4 mt-4 flex items-center justify-between text-xs text-gray-300 z-10">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-feather-pointed text-gold-400"></i>
-                        <span class="font-urdu text-gold-300 text-sm">محمد سلیمان</span>
-                        <span class="text-[10px] text-gray-400 font-cinzel">| MS 393</span>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <button onclick="copyCurrentPagePoetry()" class="hover:text-gold-300 transition flex items-center gap-1.5 bg-charcoal-900/90 px-3 py-1.5 rounded-lg border border-gold-500/30 hover:border-gold-400" title="کاپی">
-                            <i class="fa-regular fa-copy text-gold-400"></i>
-                            <span class="font-urdu hidden sm:inline text-xs">کاپی کلام</span>
-                        </button>
-                        <button id="editToggleBtn" onclick="toggleEditMode()" class="hover:text-gold-300 transition flex items-center gap-1.5 bg-charcoal-900/90 px-3 py-1.5 rounded-lg border border-gold-500/30 hover:border-gold-400" title="ترمیم">
-                            <i class="fa-solid fa-pen-to-square text-gold-400"></i>
-                            <span class="font-urdu hidden sm:inline text-xs">ترمیم</span>
-                        </button>
-                    </div>
-                </div>
-
+            <!-- Next & Prev Buttons -->
+            <div class="flex items-center gap-2 w-full md:w-auto justify-center">
+                <button onclick="prevStory()" class="flex-1 md:flex-none px-4 py-2 bg-gradient-to-r from-darkred-900 to-black hover:from-darkred-800 border border-gold/40 rounded-xl text-gold hover:text-white transition flex items-center justify-center gap-2 shadow">
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span>پچھلا صفحہ</span>
+                </button>
+                <button onclick="nextStory()" class="flex-1 md:flex-none px-4 py-2 bg-gradient-to-r from-gold-dark to-gold hover:from-gold hover:to-gold-glow text-black font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-gold/20">
+                    <span>اگلا صفحہ</span>
+                    <i class="fas fa-chevron-left text-xs"></i>
+                </button>
             </div>
         </div>
 
-        <!-- Navigation Controls Deck -->
-        <div class="w-full max-w-2xl mt-6 bg-charcoal-900/95 border border-gold-500/40 rounded-2xl p-3.5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl backdrop-blur-xl">
+        <!-- MAIN STORY DISPLAY CARD -->
+        <article class="story-card border border-gold/40 rounded-3xl p-5 sm:p-8 gold-box-shadow relative overflow-hidden flex flex-col justify-between min-h-[520px]">
             
-            <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
-                <!-- Next / Prev Buttons -->
-                <button onclick="prevPage()" id="prevBtn" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-gold-500/40 bg-gold-500/10 hover:bg-gold-500/20 text-gold-300 font-urdu text-sm flex items-center justify-center gap-2 transition disabled:opacity-30 disabled:cursor-not-allowed">
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                    <span>پچھلا صفحہ</span>
-                </button>
+            <!-- Dynamic Background Scene -->
+            <div class="absolute inset-0 z-0 opacity-15 pointer-events-none overflow-hidden">
+                <div id="sceneBackdrop" class="w-full h-full bg-cover bg-center transition-all duration-1000 scale-105 filter blur-[1px]"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black"></div>
+            </div>
 
-                <div class="flex items-center gap-1.5 font-cinzel text-xs text-gold-300 px-2">
-                    <span class="font-urdu text-xs">صفحہ</span>
-                    <input type="number" id="pageJumpInput" min="0" max="41" value="1" onchange="jumpToInputValue(this.value)" class="w-12 bg-charcoal-950 border border-gold-500/50 rounded-lg px-2 py-1 text-center text-gold-300 font-bold focus:outline-none focus:border-gold-300">
-                    <span>از 40</span>
+            <!-- Header Title Info -->
+            <div class="relative z-10 border-b border-gold/20 pb-4 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span id="storyCategoryTag" class="text-[10px] sm:text-xs font-sans tracking-wider bg-gold/10 text-gold border border-gold/30 px-2.5 py-0.5 rounded-full">
+                            چڑیلیں اور آسیب
+                        </span>
+                        <span id="storyReadTime" class="text-[10px] text-gray-400">
+                            <i class="far fa-clock me-1"></i> مطالعہ: 3 منٹ
+                        </span>
+                    </div>
+                    <h2 id="storyTitle" class="text-2xl sm:text-4xl font-bold text-gold-gradient drop-shadow-md leading-relaxed">
+                        سایوں کا گاؤں اور کالا درخت
+                    </h2>
                 </div>
 
-                <button onclick="nextPage()" id="nextBtn" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-gold-500/40 bg-gold-500/10 hover:bg-gold-500/20 text-gold-300 font-urdu text-sm flex items-center justify-center gap-2 transition disabled:opacity-30 disabled:cursor-not-allowed">
-                    <span>اگلا صفحہ</span>
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                <!-- Bookmark Button -->
+                <button id="bookmarkBtn" onclick="toggleBookmark()" class="self-end sm:self-center p-2.5 rounded-xl border border-gold/30 bg-black/60 text-gold hover:bg-gold hover:text-black transition shadow">
+                    <i id="bookmarkIcon" class="far fa-bookmark text-lg"></i>
                 </button>
             </div>
 
-            <!-- Page Range Slider -->
-            <div class="w-full sm:w-48 flex items-center gap-2">
-                <i class="fa-solid fa-book-open text-gold-500/70 text-xs"></i>
-                <input type="range" id="pageRangeSlider" min="0" max="41" value="1" oninput="goToPage(parseInt(this.value))" class="w-full accent-gold-500 h-1.5 bg-charcoal-950 rounded-lg appearance-none cursor-pointer">
+            <!-- MULTI-ENGINE VOICE NARRATOR CONTROL PANEL -->
+            <div class="relative z-10 bg-black/90 border border-gold/30 rounded-2xl p-3 sm:p-4 mb-6 flex flex-wrap items-center justify-between gap-4 shadow-inner">
+                
+                <!-- Boy vs Girl Voice Toggle -->
+                <div class="flex items-center gap-3">
+                    <span class="text-xs text-gold/80 font-bold hidden sm:inline">راوی منتخب کریں:</span>
+                    <div class="flex bg-darkred-950 p-1 rounded-xl border border-gold/30">
+                        <button id="voiceBoyBtn" onclick="setVoiceGender('MALE')" class="px-3 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-gold text-black">
+                            <i class="fas fa-mars"></i> <span>لڑکا (Boy Voice)</span>
+                        </button>
+                        <button id="voiceGirlBtn" onclick="setVoiceGender('FEMALE')" class="px-3 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-gray-400 hover:text-gold">
+                            <i class="fas fa-venus"></i> <span>لڑکی (Girl Voice)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Play / Pause / Stop Audio Actions -->
+                <div class="flex items-center gap-2">
+                    <button id="playAudioBtn" onclick="toggleSpeechNarration()" class="px-4 py-2 bg-gradient-to-r from-gold to-amber-500 hover:from-amber-400 hover:to-gold text-black font-bold rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-lg transition">
+                        <i id="playAudioIcon" class="fas fa-play"></i>
+                        <span id="playAudioText">کہانی سنیں (Voice Story)</span>
+                    </button>
+
+                    <button onclick="stopSpeechNarration()" title="آواز مکمل روکیں" class="p-2 bg-darkred-900 border border-red-500/40 text-red-400 hover:bg-red-600 hover:text-white rounded-xl text-xs transition">
+                        <i class="fas fa-stop"></i>
+                    </button>
+
+                    <!-- Speed Control -->
+                    <select id="speechRate" onchange="updateSpeechRate()" class="bg-darkred-950 text-gold text-xs border border-gold/30 rounded-xl px-2 py-2 focus:outline-none">
+                        <option value="0.8">رفتار: 0.8x</option>
+                        <option value="1.0" selected>رفتار: 1.0x</option>
+                        <option value="1.2">رفتار: 1.2x</option>
+                    </select>
+                </div>
             </div>
 
+            <!-- STORY TEXT CONTAINER WITH SENTENCE HIGHLIGHTS -->
+            <div class="relative z-10 flex-1 my-2">
+                <div id="storyText" class="story-content text-gray-200 drop-shadow">
+                    <!-- Text Injected Dynamically -->
+                </div>
+            </div>
+
+            <!-- FOOTER AUTHOR & SHARE INFO -->
+            <div class="relative z-10 border-t border-gold/20 pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+                <div class="flex items-center gap-2">
+                    <span class="text-gold font-bold">مصنف:</span>
+                    <span class="text-white font-bold text-sm">محمد سلیمان (مقدر)</span>
+                    <span class="text-gray-500">|</span>
+                    <span class="text-amber-200/80">کتاب مقدر سٹوریز</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="shareStory()" class="px-3 py-1.5 bg-darkred-900/80 border border-gold/30 rounded-lg text-gold hover:bg-gold hover:text-black transition flex items-center gap-1.5">
+                        <i class="fas fa-share-alt"></i>
+                        <span>شیئر کریں</span>
+                    </button>
+
+                    <a href="https://wa.me/923200031468?text=السلام%20علیکم!%20محمد%20سلیمان%20صاحب،%20مجھے%20مقدر%20سٹوریز%20کا%20یہ%20صفحہ%20پسند%20آیا۔" target="_blank" class="px-3 py-1.5 bg-emerald-900/60 border border-emerald-500/40 rounded-lg text-emerald-300 hover:bg-emerald-600 hover:text-white transition flex items-center gap-1.5">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>کتاب خریدیں</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- PAGE CHANGE NAVIGATION FOOTER -->
+        <div class="flex justify-between items-center gap-4">
+            <button onclick="prevStory()" class="flex-1 py-3 bg-black/80 border border-gold/40 hover:border-gold rounded-2xl text-gold font-bold text-sm sm:text-base transition flex items-center justify-center gap-2 shadow-xl">
+                <i class="fas fa-arrow-right"></i>
+                <span>پچھلا صفحہ</span>
+            </button>
+            <div class="text-center hidden sm:block">
+                <span class="text-xs text-gold/60 font-mono">BOOK: MUKADAR STORIES • MUHAMMAD SULEMAN</span>
+            </div>
+            <button onclick="nextStory()" class="flex-1 py-3 bg-gradient-to-r from-gold to-amber-500 hover:from-amber-400 hover:to-gold text-black font-bold text-sm sm:text-base rounded-2xl transition flex items-center justify-center gap-2 shadow-xl shadow-gold/20">
+                <span>اگلا صفحہ</span>
+                <i class="fas fa-arrow-left"></i>
+            </button>
         </div>
 
     </main>
 
-    <!-- Footer Copyright -->
-    <footer class="py-3 px-4 border-t border-gold-500/20 text-center text-[11px] text-gold-400/60 font-serif z-10 bg-charcoal-900/50">
-        <p>© MUKADAR — AUTHOR: MUHAMMAD SULEMAN | PUBLISHED BY MS 393 | ALL RIGHTS RESERVED</p>
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-gold/30 bg-black/90 py-6 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="font-cinzel text-xl text-gold-gradient font-black">MUKADAR STORIES</p>
+            <p class="text-xs text-gray-400 font-urdu max-w-xl mx-auto">
+                خوفناک اور پراسرار کہانیوں کا بہترین ذخیرہ۔ تمام حقوق بحق مصنف <strong class="text-gold">محمد سلیمان (03200031468)</strong> محفوظ ہیں۔
+            </p>
+        </div>
     </footer>
 
-    <!-- MODAL: Non-Stop 40-Min Instrumental & Drum Player -->
-    <div id="musicModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="w-full max-w-md bg-charcoal-900 border-2 border-gold-500/50 rounded-3xl p-6 shadow-2xl relative">
-            <div class="flex items-center justify-between border-b border-gold-500/20 pb-4 mb-4">
-                <h3 class="font-urdu text-2xl text-gold-300 font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-drum text-gold-400 text-lg"></i>
-                    مسلسل ساز و تبلہ (40 منٹ نان سٹاپ)
-                </h3>
-                <button onclick="toggleMusicModal(false)" class="text-gray-400 hover:text-gold-400 text-xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-black/95 border border-gold text-gold px-6 py-3 rounded-2xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none text-xs sm:text-sm font-bold flex items-center gap-2">
+        <i class="fas fa-info-circle text-amber-400"></i>
+        <span id="toastMsg">پیغام</span>
+    </div>
 
-            <p class="font-urdu text-xs text-gray-300 mb-6 leading-relaxed">
-                یہ آڈیو پلیئر پس منظر میں فلوٹ، تبلہ تال اور ستار کی دلفریب دُھنیں مسلسل (غیر معینہ مدت تک) بجاتا رہے گا جب تک آپ خود بند نہ کریں۔
-            </p>
-
-            <div class="space-y-4 mb-6">
-                <!-- Preset Selector -->
-                <div>
-                    <label class="block text-right text-xs text-gold-400 mb-2 font-urdu">موسیقی کا انداز (Instrumental Sound):</label>
-                    <select id="soundPresetSelect" onchange="changeSoundPreset(this.value)" class="w-full bg-charcoal-950 border border-gold-500/40 rounded-xl p-3 text-right font-urdu text-gold-300 text-sm focus:outline-none focus:border-gold-400">
-                        <option value="flute_tabla">فلوٹ اور دھیما تبلہ تال (Flute & Soft Tabla Beat)</option>
-                        <option value="sitar_drone">شاہی ستار اور تنپورہ ڈرون (Royal Sitar & Drone)</option>
-                        <option value="cinematic_str
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ----------------------------------------------------
+           1. STORY DATA GENERATOR FOR 100,000+ PAGES
+        ---------------------------------------------------- */
+        const storyTitles = [
+            "سایوں کا گاؤں اور کالا درخت",
+            "پرانی حویلی کا پراسرار کمرا",
+            "آخری بس کا بدروح مسافر",
+        
